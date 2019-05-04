@@ -11,7 +11,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_select 'form[action="/signup"]'
   end
-  
+
   test "invalid user should not be saved" do
     get signup_path
     assert_no_difference 'User.count' do
@@ -32,4 +32,19 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select 'div#error_explanation'
     assert_select 'div.field_with_errors'
   end
+
+  test "valid user should be saved" do
+    get signup_path
+    assert_difference 'User.count', 1 do
+      post users_path, params: { user: { name:                 "Example User",
+                                        email:                 "test@example.com",
+                                        password:              "foobar",
+                                        password_confirmation: "foobar" } }
+    end
+    follow_redirect!
+    assert_template 'users/show'
+    assert_select 'div.alert-success'
+  end
+  
+
 end
