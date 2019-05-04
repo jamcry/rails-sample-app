@@ -7,6 +7,10 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
+    <% flash.each do |message_type, message| %>
+      <% alert_type = "alert-#{message_type}" %>
+      <div class="alert <%= alert_type %>"><%= message %></div>
+    <% end %>
     <div class="container">
       <%= yield %>
       <%= render 'layouts/footer' %>
