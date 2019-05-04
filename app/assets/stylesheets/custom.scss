@@ -168,10 +168,9 @@ input {
     margin: 0 0 30px 0;
   }
 }
-.has-error {
-  color: black;
-}
+
 .field_with_errors {
+  background-color: transparent !important;
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
