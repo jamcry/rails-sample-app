@@ -9,7 +9,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "foo",
                                          password_confirmation: "bar" } }
     end
-    assert_select 'form[action="/signup"]'
+    assert_select 'form[action="/users"]'
   end
 
   test "invalid user should not be saved" do
