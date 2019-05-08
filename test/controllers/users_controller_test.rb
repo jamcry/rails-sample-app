@@ -42,4 +42,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get users_path
     assert_redirected_to login_url
   end
+
+  test "should show users index when logged in" do
+    log_in_as(@user)
+    get users_path
+    assert_template :index
+  end
 end
