@@ -17,3 +17,12 @@ User.create!(name:  "Example User",
                activated: true,
                activated_at: Time.zone.now)
 end
+
+5.times { User.first.microposts.create!(content: Faker::Quote.famous_last_words)}
+
+15.times do |n|
+  quote_text = Faker::Quote.famous_last_words
+  user_email = "example-#{n+1}@railstutorial.org"
+  user = User.find_by(user_email)
+  user.microposts.create!(content: quote_text)
+end
