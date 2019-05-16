@@ -23,6 +23,6 @@ end
 15.times do |n|
   quote_text = Faker::Quote.famous_last_words
   user_email = "example-#{n+1}@railstutorial.org"
-  user = User.find_by(user_email)
+  user = User.find_by(email: user_email)
   user.microposts.create!(content: quote_text)
 end
