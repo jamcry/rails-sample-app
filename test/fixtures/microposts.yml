@@ -44,3 +44,8 @@ van:
   content: "Dude, this van's, like, rolling probable cause."
   created_at: <%= 4.hours.ago %>
   user: example3
+
+tau:
+  content: "You know tau, hartl."
+  created_at: <%= 5.hours.ago %>
+  user: example4
